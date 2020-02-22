@@ -14,5 +14,10 @@ namespace Algorithms.Implementations.MyOwnHashTable
             Key = key;
             Data = data;
         }
+
+        public bool KeyEquals(string key)
+        {
+            return Key.Equals(key);
+        }
     }
 }

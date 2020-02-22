@@ -21,7 +21,7 @@ namespace Algorithms.Implementations.MyOwnHashTable
 
         public bool HasKey(string key)
         {
-            return DataValue.Key == key;
+            return DataValue.KeyEquals(key);
         }
     }
 }
