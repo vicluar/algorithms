@@ -11,7 +11,18 @@ namespace Algorithms
         {
             Console.WriteLine("Kicking off the process");
 
-            ExecuteHashTable();
+            //ExecuteHashTable();
+            ExecuteStringBuilder();
+        }
+
+        private static void ExecuteStringBuilder()
+        {
+            var stringBuilderRunner = new StringBuilderRunner();
+            var finalString = stringBuilderRunner.ExecuteStringBuilder();
+
+            Console.WriteLine(finalString);
+
+            Console.Read();
         }
 
         private static void ExecuteHashTable()
