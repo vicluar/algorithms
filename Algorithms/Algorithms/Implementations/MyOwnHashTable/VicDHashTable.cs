@@ -4,21 +4,39 @@ using System.Text;
 
 namespace Algorithms.Implementations.MyOwnHashTable
 {
-    public static class VicDHashTable
+    public class VicDHashTable
     {
-        public static void AddElement(DataValue dataValue)
-        {
+        private LinkedList[] _hashTable;
 
+        public VicDHashTable()
+        {
+            _hashTable = new LinkedList[int.MaxValue];
         }
 
-        public static DataValue LookUp(string key)
+        public void AddElement(DataValue dataValue)
+        {
+            var hash = HashKey(dataValue.Key);
+            var node = new Node(dataValue);
+
+            if (_hashTable[hash] == null)
+            {
+                _hashTable[hash] = new LinkedList(node);
+            }
+            else
+            {
+                var lastNode = _hashTable[hash].GetLastNode();
+                lastNode.AddNextNode(node);
+            }
+        }
+     
+        public DataValue LookUp(string key)
         {
             return null;
         }
 
-        private static long HashKey(string key)
+        private int HashKey(string key)
         {
-            return long.MinValue;
+            return key.GetHashCode();
         }
     }
 }

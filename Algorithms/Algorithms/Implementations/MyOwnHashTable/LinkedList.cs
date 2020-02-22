@@ -12,5 +12,17 @@ namespace Algorithms.Implementations.MyOwnHashTable
         {
             HeadNode = headNode;
         }
+
+        public Node GetLastNode()
+        {
+            var currentNode = HeadNode;
+
+            while (currentNode.Next != null)
+            {
+                currentNode = currentNode.Next;
+            }
+
+            return currentNode;
+        }
     }
 }
