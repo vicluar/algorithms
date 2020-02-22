@@ -29,12 +29,15 @@ namespace Algorithms.Implementations.MyOwnHashTable
         {
             var currentNode = HeadNode;
 
-            while (!currentNode.HasKey(key))
+            while (currentNode != null)
             {
+                if (currentNode.HasKey(key))
+                    return currentNode;
+
                 currentNode = currentNode.Next;
             }
 
-            return currentNode;
+            return default;
         }
     }
 }

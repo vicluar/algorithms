@@ -17,6 +17,7 @@ namespace Algorithms.Implementations.MyOwnHashTable
         {
             var hash = HashKey(dataValue.Key);
             var hashTableIndex = GetHashTableIndex(hash);
+
             var node = new Node(dataValue);
 
             if (_hashTable[hashTableIndex] == null)
