@@ -18,7 +18,7 @@ namespace Algorithms.Implementations
 
             for (int i = 0; i < 100; i++)
             {
-                stringBuilder.Append($"Text{1}-");
+                stringBuilder.Append($"Text{i}-");
             }
 
             return stringBuilder.ToString();
