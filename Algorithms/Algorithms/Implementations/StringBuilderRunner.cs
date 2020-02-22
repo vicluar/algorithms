@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algorithms.Implementations.MyOwnStringBuilder;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -13,7 +14,14 @@ namespace Algorithms.Implementations
 
         public string ExecuteStringBuilder()
         {
-            return "testing";
+            var stringBuilder = new VicDStringBuilder();
+
+            for (int i = 0; i < 100; i++)
+            {
+                stringBuilder.Append($"Text{1}-");
+            }
+
+            return stringBuilder.ToString();
         }
     }
 }
