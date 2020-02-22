@@ -18,5 +18,10 @@ namespace Algorithms.Implementations.MyOwnHashTable
         {
             Next = nextNode;
         }
+
+        public bool HasKey(string key)
+        {
+            return DataValue.Key == key;
+        }
     }
 }

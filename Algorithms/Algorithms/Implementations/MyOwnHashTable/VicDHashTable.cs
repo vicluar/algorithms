@@ -10,33 +10,48 @@ namespace Algorithms.Implementations.MyOwnHashTable
 
         public VicDHashTable()
         {
-            _hashTable = new LinkedList[int.MaxValue];
+            _hashTable = new LinkedList[400];
         }
 
         public void AddElement(DataValue dataValue)
         {
             var hash = HashKey(dataValue.Key);
+            var hashTableIndex = GetHashTableIndex(hash);
             var node = new Node(dataValue);
 
-            if (_hashTable[hash] == null)
+            if (_hashTable[hashTableIndex] == null)
             {
-                _hashTable[hash] = new LinkedList(node);
+                _hashTable[hashTableIndex] = new LinkedList(node);
             }
             else
             {
-                var lastNode = _hashTable[hash].GetLastNode();
+                var lastNode = _hashTable[hashTableIndex].GetLastNode();
                 lastNode.AddNextNode(node);
             }
         }
      
         public DataValue LookUp(string key)
         {
-            return null;
+            var hash = HashKey(key);
+            var hashTableIndex = GetHashTableIndex(hash);
+
+            if (_hashTable[hashTableIndex] == null)
+                return default;
+
+            var linkedList = _hashTable[hashTableIndex];
+            var node = linkedList.GetNodeByKey(key);
+
+            return node?.DataValue;
         }
 
         private int HashKey(string key)
         {
-            return key.GetHashCode();
+            return Math.Abs(key.GetHashCode());
+        }
+
+        private int GetHashTableIndex(int hash)
+        {
+            return hash % 400;
         }
     }
 }

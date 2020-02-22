@@ -24,5 +24,17 @@ namespace Algorithms.Implementations.MyOwnHashTable
 
             return currentNode;
         }
+
+        public Node GetNodeByKey(string key)
+        {
+            var currentNode = HeadNode;
+
+            while (!currentNode.HasKey(key))
+            {
+                currentNode = currentNode.Next;
+            }
+
+            return currentNode;
+        }
     }
 }
