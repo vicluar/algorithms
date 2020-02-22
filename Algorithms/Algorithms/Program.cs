@@ -1,4 +1,5 @@
-﻿using Algorithms.Implementations.MyOwnHashTable;
+﻿using Algorithms.Implementations;
+using Algorithms.Implementations.MyOwnHashTable;
 using System;
 using System.Collections.Generic;
 
@@ -10,13 +11,13 @@ namespace Algorithms
         {
             Console.WriteLine("Kicking off the process");
 
-            var hashTable = new VicDHashTable();
-            var dataValues = GetDataValues();
-           
-            foreach (var dataValue in dataValues)
-            {
-                hashTable.AddElement(dataValue);
-            }
+            ExecuteHashTable();
+        }
+
+        private static void ExecuteHashTable()
+        {
+            var hashTableRunner = new HashTableRunner();
+            var hashTable = hashTableRunner.GetHashTable();
 
             var result299 = hashTable.LookUp("key299");
             var result375 = hashTable.LookUp("key375");
@@ -31,18 +32,6 @@ namespace Algorithms
             Console.WriteLine($"Key: {result689.Key} - Data: {result689.Data}");
 
             Console.Read();
-        }
-
-        private static List<DataValue> GetDataValues()
-        {
-            var result = new List<DataValue>();
-
-            for (int i = 0; i < 1000; i++)
-            {
-                result.Add(new DataValue($"key{i}", $"data{i}"));
-            }
-
-            return result;
         }
     }
 }
